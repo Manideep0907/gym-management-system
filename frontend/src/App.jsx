@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 
-const API = "http://localhost:8080/api";
-
+const API = "https://gym-management-backend-4wh0.onrender.com/api";
 const ACCOUNT_KEY = "ironcoreAccount";
 
 async function api(path, options = {}) {
