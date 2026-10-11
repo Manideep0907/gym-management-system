@@ -1,0 +1,622 @@
+/* IRONCORE FITNESS CLUB — application pages
+   Replace frontend/src/AppFeatures.css with this complete file. */
+
+:root {
+  --iron-ink: #11140f;
+  --iron-lime: #c6f36b;
+  --iron-paper: #f5f5ef;
+  --iron-muted: #74796e;
+  --iron-border: #dedfd6;
+  --iron-white: #ffffff;
+}
+
+.notice {
+  margin: 14px 0;
+  padding: 12px 15px;
+  border: 1px solid var(--iron-border);
+  border-radius: 8px;
+  background: #fff;
+  color: #4e5547;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.notice.error {
+  border-color: #efc4c0;
+  background: #fff4f2;
+  color: #a02e26;
+}
+.notice.success {
+  border-color: #c7e2b0;
+  background: #f3faed;
+  color: #37651f;
+}
+.muted-copy {
+  color: var(--iron-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.subheading {
+  margin: 24px 0 12px;
+  color: var(--iron-ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 17px;
+}
+.full-button {
+  width: 100%;
+  justify-content: center;
+}
+.button-dark {
+  background: var(--iron-ink);
+  color: var(--iron-white);
+}
+.button-dark:hover {
+  background: #2b3224;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+/* Join / register / login */
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+  align-items: center;
+  gap: clamp(35px, 7vw, 110px);
+  width: min(1180px, calc(100% - 64px));
+  min-height: 640px;
+  margin: 0 auto;
+  padding: 76px 0 86px;
+}
+.auth-story {
+  max-width: 620px;
+  padding: 28px 0;
+}
+.auth-story .eyebrow {
+  margin-bottom: 25px;
+}
+.auth-story h1 {
+  margin: 0 0 24px;
+  color: var(--iron-ink);
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(46px, 6vw, 78px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: .99;
+}
+.auth-story h1 span {
+  color: #789d3e;
+}
+.auth-story > p {
+  max-width: 440px;
+  color: #656a60;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.auth-benefits {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+.auth-benefits span {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #33392e;
+  font-size: 14px;
+}
+.auth-benefits svg {
+  flex: 0 0 auto;
+  color: #6f9633;
+}
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid #e1e2d9;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 22px 65px rgb(17 20 15 / 8%);
+}
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 8px;
+  background: #f0f1eb;
+}
+.auth-switch button {
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #656a60;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.auth-switch button.active {
+  background: #fff;
+  color: var(--iron-ink);
+  box-shadow: 0 2px 7px rgb(17 20 15 / 8%);
+}
+.auth-card h2 {
+  margin: 4px 0 -10px;
+  color: var(--iron-ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 28px;
+  letter-spacing: -.7px;
+}
+.auth-card > p {
+  margin: 0;
+  color: var(--iron-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.auth-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #34392f;
+  font-size: 12px;
+  font-weight: 700;
+}
+.auth-card input,
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 13px;
+  border: 1px solid #d9dbd1;
+  border-radius: 6px;
+  outline: none;
+  background: #fff;
+  color: #171a15;
+  font-size: 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.auth-card input:focus,
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: #91b94c;
+  box-shadow: 0 0 0 3px rgb(198 243 107 / 25%);
+}
+.auth-card .button-primary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+.auth-card .auth-small {
+  text-align: center;
+  font-size: 11px;
+}
+
+/* Member and staff workspaces */
+.app-workspace {
+  width: min(1240px, calc(100% - 56px));
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: 58px 0 82px;
+}
+.workspace-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+.workspace-heading h1 {
+  margin: 8px 0 10px;
+  color: var(--iron-ink);
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(30px, 4vw, 45px);
+  letter-spacing: -1.5px;
+}
+.workspace-heading h1 span {
+  color: #779b3d;
+}
+.workspace-heading p {
+  margin: 0;
+  color: var(--iron-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.workspace-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #d8dbd0;
+  border-radius: 6px;
+  background: #fff;
+  color: #252a21;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.secondary-button:hover {
+  border-color: #a5c66c;
+  background: #fafff2;
+}
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+}
+.workspace-card {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #e0e1d8;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgb(17 20 15 / 3%);
+}
+.workspace-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  color: #171a15;
+  font-family: "Outfit", sans-serif;
+  font-size: 19px;
+}
+.workspace-card h2 svg {
+  color: #789d3e;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: #34392f;
+  font-size: 12px;
+  font-weight: 700;
+}
+.form-grid .full-field {
+  grid-column: 1 / -1;
+}
+.form-grid button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 800;
+}
+.compact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecece6;
+}
+.compact-item:first-of-type {
+  padding-top: 0;
+}
+.compact-item:last-child {
+  border-bottom: 0;
+}
+.compact-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.compact-item strong {
+  color: #22271e;
+  font-size: 13px;
+}
+.compact-item span {
+  color: #777c72;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.small-action {
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #d9e4c6;
+  border-radius: 5px;
+  background: #f4f9eb;
+  color: #334b1c;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.small-action:hover {
+  background: var(--iron-lime);
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border-radius: 30px;
+  background: #eef0e9;
+  color: #555b4d !important;
+  font-size: 9px !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.status-active,
+.status-completed,
+.status-booked {
+  background: #eaf6df;
+  color: #3b6b20 !important;
+}
+.status-pending,
+.status-pending-payment {
+  background: #fff3d8;
+  color: #87631c !important;
+}
+.status-cancelled,
+.status-inactive,
+.status-failed {
+  background: #fce9e6;
+  color: #a03e32 !important;
+}
+
+/* Trainer section on the public homepage */
+.trainers-section {
+  background: #eeefe8;
+}
+.trainer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.trainer-card {
+  overflow: hidden;
+  border: 1px solid #dedfd6;
+  border-radius: 8px;
+  background: #fff;
+  transition: transform .2s, box-shadow .2s;
+}
+.trainer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgb(25 32 12 / 7%);
+}
+.trainer-avatar {
+  display: grid;
+  place-items: center;
+  height: 145px;
+  color: var(--iron-lime);
+  background: linear-gradient(135deg, #11140f, #343d2b);
+}
+.trainer-card-content {
+  padding: 22px;
+}
+.trainer-label {
+  color: #729a30;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.trainer-card h3 {
+  margin: 10px 0 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 22px;
+}
+.trainer-card p {
+  min-height: 20px;
+  color: #777b73;
+  font-size: 12px;
+}
+.trainer-status {
+  display: block;
+  margin: 15px 0;
+  color: #477725;
+  font-size: 10px;
+}
+.trainer-card .full-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Admin page */
+.admin-warning {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border: 1px solid #e8d6a5;
+  border-radius: 7px;
+  background: #fff8e6;
+  color: #765b20;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.admin-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.admin-sidebar {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid #e0e1d8;
+  border-radius: 9px;
+  background: #fff;
+}
+.admin-sidebar button {
+  padding: 12px 13px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #555b50;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-sidebar button:hover,
+.admin-sidebar button.selected {
+  background: #eff7e3;
+  color: #344b1e;
+}
+.admin-table-card {
+  overflow: hidden;
+}
+.table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.table-heading h2 {
+  margin-bottom: 16px;
+}
+.table-heading > span {
+  color: #73786d;
+  font-size: 11px;
+}
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.data-table th,
+.data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e9eae3;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.data-table th {
+  background: #f3f4ee;
+  color: #4d5545;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+.data-table td {
+  color: #42483d;
+}
+.data-table tbody tr:hover {
+  background: #fbfcf7;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+    gap: 28px;
+    width: min(100% - 40px, 760px);
+  }
+  .auth-story h1 {
+    font-size: clamp(40px, 6vw, 58px);
+    letter-spacing: -2px;
+  }
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+  .trainer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: calc(100% - 32px);
+    min-height: auto;
+    padding: 40px 0 52px;
+  }
+  .auth-story {
+    padding: 0;
+  }
+  .auth-story .eyebrow {
+    margin-bottom: 16px;
+  }
+  .auth-story h1 {
+    font-size: clamp(39px, 11vw, 55px);
+  }
+  .auth-story > p {
+    font-size: 14px;
+  }
+  .auth-benefits {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .auth-card {
+    padding: 23px 19px;
+  }
+  .app-workspace {
+    width: calc(100% - 32px);
+    padding: 36px 0 55px;
+  }
+  .workspace-heading {
+    flex-direction: column;
+    margin-bottom: 22px;
+  }
+  .workspace-actions {
+    width: 100%;
+  }
+  .workspace-card {
+    padding: 19px;
+  }
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trainer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 420px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid .full-field {
+    grid-column: auto;
+  }
+  .auth-card h2 {
+    font-size: 24px;
+  }
+  .compact-item {
+    align-items: flex-start;
+  }
+  .status-badge {
+    white-space: nowrap;
+  }
+}
