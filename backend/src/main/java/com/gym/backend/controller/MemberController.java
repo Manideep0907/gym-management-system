@@ -1,3 +1,4 @@
+
 package com.gym.backend.controller;
 
 import com.gym.backend.entity.Member;
@@ -17,7 +18,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/members")
-@CrossOrigin(origins = {"http://localhost:5173", "${FRONTEND_URL:http://localhost:5173}"})
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "${FRONTEND_URL:http://localhost:5173}"
+})
 public class MemberController {
 
     private final MemberRepository repository;
@@ -41,7 +45,8 @@ public class MemberController {
     @PostMapping
     public ResponseEntity<Member> create(@RequestBody Member member) {
         member.setId(null);
-        return ResponseEntity.ok(repository.save(member));
+        Member saved = repository.save(member);
+        return ResponseEntity.ok(saved);
     }
 
     @PutMapping("/{id}")
@@ -49,10 +54,15 @@ public class MemberController {
             @PathVariable Long id,
             @RequestBody Member updated) {
 
+        System.out.println(
+                "PROFILE UPDATE REQUEST RECEIVED for member ID: " + id
+        );
+
         return repository.findById(id).map(member -> {
             if (updated.getFullName() != null) {
                 member.setFullName(updated.getFullName().trim());
             }
+
             if (updated.getEmail() != null) {
                 member.setEmail(updated.getEmail().trim());
             }
@@ -66,8 +76,19 @@ public class MemberController {
             member.setFitnessGoal(updated.getFitnessGoal());
             member.setActive(updated.isActive());
 
-            return ResponseEntity.ok(repository.save(member));
-        }).orElse(ResponseEntity.notFound().build());
+            Member saved = repository.save(member);
+
+            System.out.println(
+                    "PROFILE UPDATE SAVED for member ID: " + saved.getId()
+            );
+
+            return ResponseEntity.ok(saved);
+        }).orElseGet(() -> {
+            System.out.println(
+                    "PROFILE UPDATE FAILED: member not found, ID: " + id
+            );
+            return ResponseEntity.notFound().build();
+        });
     }
 
     @DeleteMapping("/{id}")
@@ -75,6 +96,7 @@ public class MemberController {
         if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
+
         repository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
